@@ -23,29 +23,28 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Id" textAlignment="RIGHT" />
-            <Label contentDisplay="RIGHT" text="Nome" textAlignment="RIGHT" GridPane.rowIndex="1" />
             <TextField fx:id="txtId" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="labelErrorName" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label contentDisplay="RIGHT" text="E-Mail" textAlignment="RIGHT" GridPane.rowIndex="2" />
-            <Label contentDisplay="RIGHT" text="Data de Nascimento" textAlignment="RIGHT" GridPane.rowIndex="3" />
-            <Label contentDisplay="RIGHT" text="Salrio Base" textAlignment="RIGHT" GridPane.rowIndex="4" />
-            <Label contentDisplay="RIGHT" text="Departamento" textAlignment="RIGHT" GridPane.rowIndex="5" />
             <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dpBirthDate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="txtBasesalary" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <ComboBox fx:id="comboBoxDepartment" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="labelErrorEmail" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label fx:id="labelErrorBirthData" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label fx:id="labelErrorBaseSalary" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label fx:id="labelErrorDepartment" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
                   <Button fx:id="btSave" mnemonicParsing="false" onAction="#onBtSaveAction" text="Salvar" />
                   <Button fx:id="btCancel" mnemonicParsing="false" onAction="#onBtCancelAction" text="Cancelar" />
                </children>
             </HBox>
-            <DatePicker fx:id="dpBirthDate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Id" textAlignment="RIGHT" />
+            <Label contentDisplay="RIGHT" text="Nome" textAlignment="RIGHT" GridPane.rowIndex="1" />
+            <Label contentDisplay="RIGHT" text="Departamento" textAlignment="RIGHT" GridPane.rowIndex="5" />
+            <Label contentDisplay="RIGHT" text="Salrio Base" textAlignment="RIGHT" GridPane.rowIndex="4" />
+            <Label contentDisplay="RIGHT" text="Data de Nascimento" textAlignment="RIGHT" GridPane.rowIndex="3" />
+            <Label contentDisplay="RIGHT" text="E-Mail" textAlignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="labelErrorName" prefHeight="17.0" prefWidth="12.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="labelErrorEmail" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="labelErrorBirthData" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="labelErrorBaseSalary" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>

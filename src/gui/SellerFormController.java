@@ -1,9 +1,11 @@
 package gui;
 
 import java.net.URL;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -141,21 +143,26 @@ public class SellerFormController implements Initializable {
 		if (txtName.getText() == null || txtName.getText().trim().equals("")) {
 			exception.addError("name", "O campo não pode ser vazio");
 		}
+		obj.setName(txtName.getText());
 
 		if (txtEmail.getText() == null || txtEmail.getText().trim().equals("")) {
 			exception.addError("email", "O campo não pode ser vazio");
 		}
+		obj.setEmail(txtEmail.getText());
 
-//		if (dpBirthDate.getD == null || dpBirthDate.getText().trim().equals("")) {
-//			exception.addError("birthdata", "O campo não pode ser vazio");
-//		}
+		if (dpBirthDate.getValue() == null) {
+			exception.addError("birthDate", "O campo não pode ser vazio");
+		} else {
+			Instant instant = Instant.from(dpBirthDate.getValue().atStartOfDay(ZoneId.systemDefault()));
+			obj.setBirthdate(Date.from(instant));
+		}
 
 		if (txtBasesalary.getText() == null || txtBasesalary.getText().trim().equals("")) {
 			exception.addError("baseSalary", "O campo não pode ser vazio");
 		}
+		obj.setBaseSalary(Utils.tryParseToDouble(txtBasesalary.getText()));
 
-		obj.setName(txtName.getText());
-		obj.setEmail(txtEmail.getText());
+		obj.setDepartment(comboBoxDepartment.getValue());
 
 		if (exception.getErrors().size() > 0) {
 			throw exception;
@@ -230,9 +237,10 @@ public class SellerFormController implements Initializable {
 
 		Set<String> fields = errors.keySet();
 
-		if (fields.contains("name")) {
-			labelErrorName.setText(errors.get("name"));
-		}
+		labelErrorName.setText((fields.contains("name") ? errors.get("name") : ""));
+		labelErrorEmail.setText((fields.contains("email") ? errors.get("email") : ""));
+		labelErrorBaseSalary.setText((fields.contains("baseSalary") ? errors.get("baseSalary") : ""));
+		labelErrorBirthData.setText((fields.contains("birthDate") ? errors.get("birthDate") : ""));
 
 	}
 
